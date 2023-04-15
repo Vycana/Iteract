@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 /**
  * The `Iteract` class is a data manipulation library that allows for filtering data more readable and straigh-forward
  * 
@@ -285,4 +287,4 @@ class WhereOperator {
         return new WhereOperator(this.data, this.operator, this.value);
     }
 }
-module.exports = Iteract;
+export default Iteract;

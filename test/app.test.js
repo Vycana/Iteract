@@ -1,5 +1,5 @@
-const Iteract = require('../src/Iteract');
-
+// const Iteract = require('../src/Iteract.mjs');
+import Iteract from "../src/Iteract.mjs";
 describe('Iteract Testing', () => {
     test("Showing data", () => {
         const data = new Iteract([1, 2, 3, 4]);
