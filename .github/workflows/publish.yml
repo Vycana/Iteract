@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Check Quality on ${{ matrix.node-version }}
+    name: Check Quality on (${{ matrix.os }}, ${{ matrix.node-version }})
     runs-on: ${{ matrix.os }}
 
     strategy:
