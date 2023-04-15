@@ -1,0 +1,28 @@
+{
+  "name": "Iteract",
+  "version": "0.0.1",
+  "description": "Dealing with data structure easily like snapping fingers",
+  "main": "/src/Iteract.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vycana/Iteract.git"
+  },
+  "keywords": [
+    "array",
+    "data",
+    "structure"
+  ],
+  "author": "Bagas Satria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vycana/Iteract/issues"
+  },
+  "homepage": "https://github.com/Vycana/Iteract#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
