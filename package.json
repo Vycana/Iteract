@@ -5,7 +5,8 @@
   "main": "/src/Iteract.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "acp": "git add . && git cz && git push"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,22 @@
   },
   "homepage": "https://github.com/Vycana/Iteract#readme",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^29.5.0",
+    "semantic-release": "^21.0.1"
   },
   "dependencies": {
     "node-fetch": "^3.3.1"
   },
-  "transform": {}
+  "transform": {},
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
