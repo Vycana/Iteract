@@ -1,4 +1,3 @@
-// const Iteract = require('../src/Iteract.mjs');
 import Iteract from "../src/index.js";
 describe('Iteract Testing', () => {
     test("Showing data", () => {
