@@ -1,16 +1,17 @@
 {
   "name": "Iteract",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Dealing with data structure easily like snapping fingers",
   "main": "/src/Iteract.js",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "acp": "git add . && git cz && git push"
+    "acp": "git add . && git cz && git push",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vycana/Iteract.git"
+    "url": "https://github.com/Vycana/Iteract.git"
   },
   "keywords": [
     "array",
