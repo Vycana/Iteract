@@ -2,7 +2,7 @@
   "name": "iteract",
   "version": "0.0.0-development",
   "description": "Dealing with data structure easily like snapping fingers",
-  "main": "/src/Iteract.js",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",

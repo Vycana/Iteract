@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 /**
  * The `Iteract` class is a data manipulation library that allows for filtering data more readable and straigh-forward
  * 
