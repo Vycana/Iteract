@@ -30,7 +30,7 @@
     "semantic-release": "^21.0.1"
   },
   "dependencies": {
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^2.6.9"
   },
   "transform": {},
   "release": {
