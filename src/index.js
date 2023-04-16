@@ -5,7 +5,8 @@ let fetch;
 // Node JS used
 if (typeof window === 'undefined') {
     className = Iteract;
-    fetch = import("../node_modules/node-fetch");
+    fetch = await import("../node_modules/node-fetch");
+    globalThis.fetch = fetch.default;
 } else {
     // Browser used
     window.Iteract = Iteract;
