@@ -1,10 +1,13 @@
 import Iteract from "../src/Iteract.js";
 let className;
 let fetch;
+
+// Node JS used
 if (typeof window === 'undefined') {
     className = Iteract;
-    fetch = typeof require !== "undefined" ? require("../node_modules/node-fetch/src/index.js") : "";
+    fetch = import("../node_modules/node-fetch");
 } else {
+    // Browser used
     window.Iteract = Iteract;
     className = window.Iteract;
 }
