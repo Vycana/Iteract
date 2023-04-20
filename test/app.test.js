@@ -2624,5 +2624,18 @@ describe('Iteract Testing', () => {
         ]);
     });
 
+    test("keys function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bagas", age: 25 },
+            { name: "bar", age: 25 },
+            { name: "alex", age: 30 },
+            { name: "joko", age: 15 },
+            { name: "dafli", age: 55 },
+            { name: "sutra", age: 35 },
+        ]);
+        expect(objectData.keys().all()).toStrictEqual(["name", "age"]);
+    });
+
 });
 

@@ -352,6 +352,14 @@ class Iteract {
     }
 
     /**
+     * The function returns an iterator of the keys of an object.
+     * @returns A new Iteract object containing the keys of all the elements in the object.
+     */
+    keys() {
+        return new Iteract(Object.keys(...this.all()));
+    }
+
+    /**
      * The function fetches data from a given URL and returns a new Iteract object.
      * @param url - The URL from which data needs to be fetched asynchronously.
      * @returns A new instance of the `Iteract` class with the data fetched from the provided URL.
