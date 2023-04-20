@@ -370,6 +370,15 @@ class Iteract {
     }
 
     /**
+     * The function checks if a data array is not empty.
+     * @returns The `isNotEmpty()` function is returning a boolean value (`true` or `false`) based on
+     * whether the length of the `data` array is greater than 0.
+     */
+    isNotEmpty() {
+        return this.length() > 0;
+    }
+
+    /**
      * The function fetches data from a given URL and returns a new Iteract object.
      * @param url - The URL from which data needs to be fetched asynchronously.
      * @returns A new instance of the `Iteract` class with the data fetched from the provided URL.
