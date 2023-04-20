@@ -337,6 +337,11 @@ class Iteract {
         throw new Error("Data must be numeric only or the key is not exist in this array.")
     }
 
+    /**
+     * The function returns an array of values from an object.
+     * @returns A new instance of the `Iteract` class with an array of all the values of the objects in
+     * the `data` array flattened into a single array.
+     */
     values() {
         let result = [];
         for (let i = 0; i < this.length(); i+=1) {
