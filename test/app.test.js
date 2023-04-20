@@ -2894,8 +2894,8 @@ describe('Iteract Testing', () => {
             { name: "sutra", age: 35 },
         ]);
         const emptyData = new Iteract();
-        expect(emptyData.isEmpty()).toStrictEqual(true);
-        expect(objectData.isEmpty()).toStrictEqual(false);
+        expect(emptyData.isEmpty()).toBe(true);
+        expect(objectData.isEmpty()).toBe(false);
     });
 
     test("isNotEmpty function", () => {
@@ -2909,8 +2909,25 @@ describe('Iteract Testing', () => {
             { name: "sutra", age: 35 },
         ]);
         const emptyData = new Iteract();
-        expect(emptyData.isNotEmpty()).toStrictEqual(false);
-        expect(objectData.isNotEmpty()).toStrictEqual(true);
+        expect(emptyData.isNotEmpty()).toBe(false);
+        expect(objectData.isNotEmpty()).toBe(true);
+    });
+    
+    test("contains function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bagas", age: 25 },
+            { name: "bar", age: 25 },
+            { name: "alex", age: 30 },
+            { name: "joko", age: 15 },
+            { name: "dafli", age: 55 },
+            { name: "sutra", age: 35 },
+        ]);
+        const data = new Iteract([1, 2, 3, 4]);
+        expect(data.contains(item => item == 1)).toBe(true);
+        expect(data.contains(item => item == 10)).toBe(false);
+        expect(objectData.contains(item => item.age > 30)).toStrictEqual(true);
+        expect(objectData.contains(item => item.age > 60)).toStrictEqual(false);
     });
 
 });
