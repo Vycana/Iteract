@@ -2849,5 +2849,26 @@ describe('Iteract Testing', () => {
         expect(() => objectData.merge(123).all()).toThrow("Parameter must passing the array values.");
     });
 
+    test("values function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bagas", age: 25 },
+            { name: "bar", age: 25 },
+            { name: "alex", age: 30 },
+            { name: "joko", age: 15 },
+            { name: "dafli", age: 55 },
+            { name: "sutra", age: 35 },
+        ]);
+        expect(objectData.values().all()).toStrictEqual([
+            "foo", 20,
+            "bagas", 25,
+            "bar", 25,
+            "alex", 30,
+            "joko", 15,
+            "dafli", 55,
+            "sutra", 35,
+        ]);
+    });
+
 });
 
