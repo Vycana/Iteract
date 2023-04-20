@@ -2883,5 +2883,35 @@ describe('Iteract Testing', () => {
         expect(objectData.keys().all()).toStrictEqual(["name", "age"]);
     });
 
+    test("isEmpty function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bagas", age: 25 },
+            { name: "bar", age: 25 },
+            { name: "alex", age: 30 },
+            { name: "joko", age: 15 },
+            { name: "dafli", age: 55 },
+            { name: "sutra", age: 35 },
+        ]);
+        const emptyData = new Iteract();
+        expect(emptyData.isEmpty()).toStrictEqual(true);
+        expect(objectData.isEmpty()).toStrictEqual(false);
+    });
+
+    test("isNotEmpty function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bagas", age: 25 },
+            { name: "bar", age: 25 },
+            { name: "alex", age: 30 },
+            { name: "joko", age: 15 },
+            { name: "dafli", age: 55 },
+            { name: "sutra", age: 35 },
+        ]);
+        const emptyData = new Iteract();
+        expect(emptyData.isNotEmpty()).toStrictEqual(false);
+        expect(objectData.isNotEmpty()).toStrictEqual(true);
+    });
+
 });
 
