@@ -379,6 +379,27 @@ class Iteract {
     }
 
     /**
+     * This function checks if any element in an array satisfies a given condition and returns true if
+     * at least one element does.
+     * @param callback - The callback parameter is a function that will be called for each element in
+     * the array. It takes one argument, which is the current element being iterated over, and should
+     * return a boolean value indicating whether the element satisfies a certain condition. The
+     * contains() method will return true if the callback function returns true
+     * @returns The `contains` method is returning a boolean value (`true` or `false`). It returns
+     * `true` if the callback function passed as an argument returns `true` for at least one element in
+     * the array, and `false` otherwise.
+     */
+    contains(callback) {
+        for (let i = 0; i < this.length(); i++) {
+            const element = this.data[i];
+            if(callback(element)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * The function fetches data from a given URL and returns a new Iteract object.
      * @param url - The URL from which data needs to be fetched asynchronously.
      * @returns A new instance of the `Iteract` class with the data fetched from the provided URL.
