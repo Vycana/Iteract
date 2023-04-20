@@ -360,6 +360,16 @@ class Iteract {
     }
 
     /**
+     * Checks if an array is empty and returns a boolean value.
+     * @returns If the length is zero, it
+     * will return `true`, indicating that the object is empty. If the length is greater than zero, it
+     * will return `false`, indicating that the object is not empty.
+     */
+    isEmpty() {
+        return this.length() == 0;
+    }
+
+    /**
      * The function fetches data from a given URL and returns a new Iteract object.
      * @param url - The URL from which data needs to be fetched asynchronously.
      * @returns A new instance of the `Iteract` class with the data fetched from the provided URL.
