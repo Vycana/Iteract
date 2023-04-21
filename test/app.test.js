@@ -2954,8 +2954,21 @@ describe('Iteract Testing', () => {
         const data = new Iteract([1, 2, 3, 4]);
         // console.log(data.merge([5, 6, 7, 8]));
         expect(data.merge([5, 6, 7, 8]).all()).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8]);
-        expect(objectData.merge([{ name: "bagas", gender: "Male" }]).all()).toStrictEqual([{ name: 'bagas', age: 20, gender: 'Male' }, {name: "bar", age: 20}]);
-        expect(objectData.merge([{}, { gender: "Female" }]).all()).toStrictEqual([{ name: 'bagas', age: 20, gender: 'Male'  }, {name: "bar", gender: 'Female', age: 20}]);
+        expect(objectData.merge([{ name: "bagas", gender: "Male" }]).all()).toStrictEqual([{ name: 'bagas', age: 20, gender: 'Male' }, { name: "bar", age: 20 }]);
+        expect(objectData.merge([{}, { gender: "Female" }]).all()).toStrictEqual([{ name: 'bagas', age: 20, gender: 'Male' }, { name: "bar", gender: 'Female', age: 20 }]);
+        expect(() => objectData.merge(123).all()).toThrow("Parameter must passing the array values.");
+    });
+
+    test("mergeRecursive function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bar", age: 20 },
+        ]);
+        // const data = new Iteract([1, 2, 3, 4]);
+        expect(objectData.mergeRecursive([{ name: "bagas" }, { age: [19, 20, 21] }]).all()).toStrictEqual([
+            { name: ['foo', 'bagas'], age: 20 },
+            { name: 'bar', age: [20, 19, 20, 21] }
+        ]);
         expect(() => objectData.merge(123).all()).toThrow("Parameter must passing the array values.");
     });
 
