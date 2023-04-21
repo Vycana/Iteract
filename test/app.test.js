@@ -2684,5 +2684,21 @@ describe('Iteract Testing', () => {
         expect(objectData.contains(item => item.age > 60)).toStrictEqual(false);
     });
 
+    test("lengthBy function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bagas", age: 25 },
+            { name: "bar", age: 25 },
+            { name: "alex", age: 30 },
+            { name: "joko", age: 15 },
+            { name: "dafli", age: 55 },
+            { name: "sutra", age: 35 },
+        ]);
+        const data = new Iteract([1, 2, 2, 3, 4, 4, 4, 3, 4]);
+        expect(data.lengthBy()).toStrictEqual({"1": 1, "2": 2, "3": 2, "4": 4});
+        expect(objectData.lengthBy(item => item.age)).toStrictEqual({"15": 1, "20": 1, "25": 2, "30": 1, "35": 1, "55": 1});
+        expect(objectData.lengthBy(item => item.name.substring(0, 2))).toStrictEqual({"al": 1, "ba": 2, "da": 1, "fo": 1, "jo": 1, "su": 1});
+    });
+
 });
 

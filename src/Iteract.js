@@ -138,6 +138,34 @@ class Iteract {
     }
 
     /**
+     * This is a function that returns the length of an array grouped by a callback function.
+     * @param callback - The `callback` parameter is a function that will be called for each item in
+     * the collection. It takes two arguments: the current item being iterated over, and the entire
+     * collection. The function should return a value that will be used to group the items in the
+     * collection.
+     * @returns The `lengthBy` method returns an object that contains the count of each item in the
+     * collection, grouped by the result of the callback function if provided.
+     */
+    lengthBy(callback) {
+        let result = {};
+        this.each(item => {
+            const group = typeof callback === "function" ? callback(item, this.all()) : null;
+            if(group) {
+                if(!result[group]) {
+                    result[group] = 0;
+                }
+                result[group]++;
+            } else {
+                if(!result[item]) {
+                    result[item] = 0;
+                }
+                result[item]++;
+            }
+        });
+        return result
+    }
+
+    /**
      * The function returns the first element of an array.
      * @returns The `first()` function is returning the first element of an array.
      */
