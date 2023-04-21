@@ -190,6 +190,39 @@ class Iteract {
     }
 
     /**
+     * The function merges arrays recursively and returns an instance of the Iteract class.
+     * @param values - an array of objects that contain key-value pairs to be merged into the existing
+     * object.
+     * @returns If the input parameter is an array of objects and the current object has keys, the
+     * method will return the current object with the merged values. If the input parameter is an array
+     * of objects and the current object does not have keys, the method will return a new Iteract
+     * object with the merged values. If the input parameter is not an array of objects, an error will
+     * be thrown.
+     */
+    mergeRecursive(values) {
+        if(Array.isArray(values) && typeof values === "object") {
+            if(this.hasKeys()) {
+                for (let i = 0; i < values.length; i++) {
+                    const valueItem = values[i];
+                    const currentItem = this.all()[i];
+                    for(const key in valueItem) {
+                        if(Array.isArray(valueItem[key])) {
+                            currentItem[key] = [currentItem[key], ...valueItem[key]];
+                        } else {
+                            currentItem[key] = [currentItem[key], valueItem[key]];
+                        }
+                    }
+                }
+                return this;
+            }
+            return new Iteract([...this.all(), ...values]);
+        }
+        throw new Error("Parameter must passing the array values.");
+    }
+
+
+
+    /**
      * The function returns the first element of an array.
      * @returns The `first()` function is returning the first element of an array.
      */
