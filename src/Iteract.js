@@ -400,6 +400,20 @@ class Iteract {
     }
 
     /**
+     * This is a method that iterates over each element in an array and executes a callback function on
+     * each element.
+     * @param callback - The "callback" parameter is a function that will be executed for each element
+     * in the data array. It takes two arguments: the current element being iterated over and the
+     * entire data array.
+     */
+    each(callback) {
+        for (let i = 0; i < this.length(); i++) {
+            const element = this.data[i];
+            callback(element, this.all());
+        }
+    }
+
+    /**
      * The function fetches data from a given URL and returns a new Iteract object.
      * @param url - The URL from which data needs to be fetched asynchronously.
      * @returns A new instance of the `Iteract` class with the data fetched from the provided URL.
