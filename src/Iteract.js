@@ -166,6 +166,30 @@ class Iteract {
     }
 
     /**
+     * The function merges an array of objects into an existing array of objects.
+     * If `key` is exist in original data, it will override that existing `key`.
+     * @param values - The parameter "values" is an array of objects that will be merged with the
+     * existing objects in the Iteract instance.
+     * @returns The `merge` method returns either the merged `Iteract` object.
+     */
+    merge(values) {
+        if(Array.isArray(values) && typeof values === "object") {
+            if(this.hasKeys()) {
+                for (let i = 0; i < values.length; i++) {
+                    const valueItem = values[i];
+                    const currentItem = this.all()[i];
+                    for(const key in valueItem) {
+                        currentItem[key] = valueItem[key];
+                    }
+                }
+                return this;
+            }
+            return new Iteract([...this.all(), ...values]);
+        }
+        throw new Error("Parameter must passing the array values.");
+    }
+
+    /**
      * The function returns the first element of an array.
      * @returns The `first()` function is returning the first element of an array.
      */
