@@ -2789,7 +2789,7 @@ describe('Iteract Testing', () => {
         expect(emptyData.isNotEmpty()).toBe(false);
         expect(objectData.isNotEmpty()).toBe(true);
     });
-    
+
     test("contains function", () => {
         const objectData = new Iteract([
             { name: "foo", age: 20 },
@@ -2818,9 +2818,22 @@ describe('Iteract Testing', () => {
             { name: "sutra", age: 35 },
         ]);
         const data = new Iteract([1, 2, 2, 3, 4, 4, 4, 3, 4]);
-        expect(data.lengthBy()).toStrictEqual({"1": 1, "2": 2, "3": 2, "4": 4});
-        expect(objectData.lengthBy(item => item.age)).toStrictEqual({"15": 1, "20": 1, "25": 2, "30": 1, "35": 1, "55": 1});
-        expect(objectData.lengthBy(item => item.name.substring(0, 2))).toStrictEqual({"al": 1, "ba": 2, "da": 1, "fo": 1, "jo": 1, "su": 1});
+        expect(data.lengthBy()).toStrictEqual({ "1": 1, "2": 2, "3": 2, "4": 4 });
+        expect(objectData.lengthBy(item => item.age)).toStrictEqual({ "15": 1, "20": 1, "25": 2, "30": 1, "35": 1, "55": 1 });
+        expect(objectData.lengthBy(item => item.name.substring(0, 2))).toStrictEqual({ "al": 1, "ba": 2, "da": 1, "fo": 1, "jo": 1, "su": 1 });
+    });
+
+    test("merge function", () => {
+        const objectData = new Iteract([
+            { name: "foo", age: 20 },
+            { name: "bar", age: 20 },
+        ]);
+        const data = new Iteract([1, 2, 3, 4]);
+        // console.log(data.merge([5, 6, 7, 8]));
+        expect(data.merge([5, 6, 7, 8]).all()).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8]);
+        expect(objectData.merge([{ name: "bagas", gender: "Male" }]).all()).toStrictEqual([{ name: 'bagas', age: 20, gender: 'Male' }, {name: "bar", age: 20}]);
+        expect(objectData.merge([{}, { gender: "Female" }]).all()).toStrictEqual([{ name: 'bagas', age: 20, gender: 'Male'  }, {name: "bar", gender: 'Female', age: 20}]);
+        expect(() => objectData.merge(123).all()).toThrow("Parameter must passing the array values.");
     });
 
 });
