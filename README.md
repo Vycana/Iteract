@@ -45,24 +45,8 @@ To use iteract in browser env, just use `Iteract` and you are ready to go.
         })
 </script>
 ```
+-----
 
-### Creating a new Iteract object
-
-Create a new Iteract object by passing an array or an object to the constructor:
-
-```javascript
-const data = [1, 2, 3];
-const iteract = new Iteract(data);
-```
-
-Method
----
-
-### all()
-
-Use the `all()` method to get all the data stored in the object:
-
-## Usage
 
 Require the package in your project:
 
