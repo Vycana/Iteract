@@ -47,13 +47,6 @@ To use iteract in browser env, just use `Iteract` and you are ready to go.
 ```
 -----
 
-
-Require the package in your project:
-
-```javascript
-const { Iteract } = require('@vycana/iteract');
-```
-
 ### Creating a new Iteract object
 
 Create a new Iteract object by passing an array or an object to the constructor:
@@ -62,6 +55,9 @@ Create a new Iteract object by passing an array or an object to the constructor:
 const data = [1, 2, 3];
 const iteract = new Iteract(data);
 ```
+
+Method
+---
 
 ### all()
 
