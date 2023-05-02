@@ -62,6 +62,27 @@ Method
 
 Use the `all()` method to get all the data stored in the object:
 
+## Usage
+
+Require the package in your project:
+
+```javascript
+const { Iteract } = require('@vycana/iteract');
+```
+
+### Creating a new Iteract object
+
+Create a new Iteract object by passing an array or an object to the constructor:
+
+```javascript
+const data = [1, 2, 3];
+const iteract = new Iteract(data);
+```
+
+### all()
+
+Use the `all()` method to get all the data stored in the object:
+
 ```javascript
 const data = [1, 2, 3];
 const iteract = new Iteract(data);
