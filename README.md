@@ -45,9 +45,7 @@ To use iteract in browser env, just use `Iteract` and you are ready to go.
         })
 </script>
 ```
------
 
-## Usage
 
 Require the package in your project:
 
