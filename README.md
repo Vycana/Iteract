@@ -9,25 +9,18 @@ Iteract
 
 Iteract is a data manipulation library that allows for filtering data in a more readable and straightforward way. It provides an easy-to-use API for manipulating arrays of objects.
 
-Installation
-------------
+## Installation
 
-You can install Iteract using npm:
+Install the package using npm:
 
-```shell
-npm install iteract
-
+```bash
+npm install @vycana/iteract
 ```
-if you using this with browser env, better use this below.
-```html
-<script src="https://cdn.jsdelivr.net/gh/Vycana/Iteract@1.1.0/src/index.js" type="module"></script>
-```
-
 Usage
 -----
 Getting Started
 -----
-##### Node JS ENV
+### Node JS ENV
 To use Iteract, simply import it and create a new instance with your data:
 
 ```js
@@ -43,7 +36,7 @@ const iteract = new Iteract(data);
 
 ```
 
-##### Browser ENV
+### Browser ENV
 To use iteract in browser env, just use `Iteract` and you are ready to go.
 ```js
 <script>
@@ -54,53 +47,137 @@ To use iteract in browser env, just use `Iteract` and you are ready to go.
 ```
 -----
 
-### Filtering
+## Usage
 
-Iteract provides a `where` method for filtering data. The `where` method takes one or more arguments that represent the conditions to filter by.
+Require the package in your project:
 
-```js
-const result = iteract.where("age", ">", 30);
-
+```javascript
+const { Iteract } = require('@vycana/iteract');
 ```
 
-This will return a new `Iteract` object containing only the objects where the age is greater than 30.
+### Creating a new Iteract object
 
-### Sorting
+Create a new Iteract object by passing an array or an object to the constructor:
 
-Iteract provides a `sort` method for sorting data. The `sort` method takes two optional arguments: `sortAscending` (a boolean that determines whether to sort in ascending or descending order) and `key` (the property to sort by).
-
-```js
-const result = iteract.sort(false, "age");
-
+```javascript
+const data = [1, 2, 3];
+const iteract = new Iteract(data);
 ```
 
-This will return a new `Iteract` object with the data sorted in descending order by age.
+### all()
 
-### Unique values
+Use the `all()` method to get all the data stored in the object:
 
-Iteract provides a `unique` method for filtering out duplicate values from an array. The `unique` method takes an optional `key` parameter that specifies the property to check for uniqueness.
-
-```js
-const result = iteract.unique("name");
-
+```javascript
+const data = [1, 2, 3];
+const iteract = new Iteract(data);
+console.log(iteract.all()); // [1, 2, 3]
 ```
 
-This will return a new `Iteract` object with the duplicates removed based on the `name` property.
+### where(...)
 
-### Additional methods
+Use the `where(...)` method to filter the data based on certain conditions:
 
-Iteract also provides several other methods for manipulating arrays, such as `push`, `pop`, `length`, `first`, and `last`.
-
-```js
-const result = iteract.push({ id: 4, name: "Lucas", age: 28 });
-
+```javascript
+const data = [
+  { name: 'John', age: 25 },
+  { name: 'Mary', age: 30 },
+  { name: 'Peter', age: 35 },
+];
+const iteract = new Iteract(data);
+console.log(iteract.where('age', '>=', 30).all()); // [{ name: 'Mary', age: 30 }, { name: 'Peter', age: 35 }]
 ```
 
-This will return a new `Iteract` object with the new object added to the end of the array.
+### sort(...)
+
+To use the sort method of the Iteract class, you can create a new instance of Iteract and pass an array or an object to it. Then, you can call the sort method on the Iteract instance, passing in the sortAscending parameter (which determines whether to sort the data in ascending or descending order) and the key parameter (which specifies the key to use for sorting if the data is an array of objects).
+
+```javascript
+const { Iteract } = require('iteract');
+
+// Create a new instance of Iteract with an array of numbers
+const arr = [4, 2, 1, 3];
+const iteractArr = new Iteract(arr);
+
+// Sort the array in ascending order
+const sortedArr = iteractArr.sort(true);
+console.log(sortedArr.all()); // [1, 2, 3, 4]
+
+// Sort the array in descending order
+const reverseSortedArr = iteractArr.sort(false);
+console.log(reverseSortedArr.all()); // [4, 3, 2, 1]
+
+// Create a new instance of Iteract with an array of objects
+const objArr = [
+	{ name: 'John', age: 25 },
+	{ name: 'Mary', age: 30 },
+	{ name: 'Peter', age: 20 },
+];
+
+const iteractObjArr = new Iteract(objArr);
+
+// Sort the array of objects in ascending order based on the 'age' key
+const sortedObjArr = iteractObjArr.sort(true, 'age');
+console.log(sortedObjArr.all()); // [{ name: 'Peter', age: 20 }, { name: 'John', age: 25 }, { name: 'Mary', age: 30 }]
+
+// Sort the array of objects in descending order based on the 'name' key
+const reverseSortedObjArr = iteractObjArr.sort(false, 'name');
+console.log(reverseSortedObjArr.all()); // [{ name: 'Peter', age: 20 }, { name: 'Mary', age: 30 }, { name: 'John', age: 25 }]
+```
+
+### has(value)
+
+Use the `has(value)` method to check if a given value exists as a key in the object:
+
+```javascript
+const data = { name: 'John', age: 25 };
+const iteract = new Iteract(data);
+console.log(iteract.has('name')); // true
+console.log(iteract.has('email')); // false
+```
+
+### hasKeys()
+
+Use the `hasKeys()` method to check if the object has any keys:
+
+```javascript
+const data = { name: 'John', age: 25 };
+const iteract = new Iteract(data);
+console.log(iteract.hasKeys()); // true
+```
+
+### unique(key)
+
+Use the `unique(key)` method to return an object with unique elements based on a specified key:
+
+```javascript
+const data = [
+  { name: 'John', age: 25 },
+  { name: 'Mary', age: 30 },
+  { name: 'John', age: 35 },
+];
+const iteract = new Iteract(data);
+console.log(iteract.unique('name').all()); // [{ name: 'John', age: 25 }, { name: 'Mary', age: 30 }]
+```
+
+### push(value)
+
+Use the `push(value)` method to add a value to the data array and return a new Iteract object:
+
+```javascript
+const data = [1, 2, 3];
+const iteract = new Iteract(data);
+console.log(iteract.push(4).all()); // [1, 2, 3, 4]
+```
+
+Contributors
+---
+
+- dysentry30 - Author - [Github Profile](https://github.com/dysentry30)
 
 License
 -------
 
-Iteract is released under the MIT License.
+Iteract is released under the Vycana's MIT License.
 
 
