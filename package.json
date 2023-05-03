@@ -1,6 +1,6 @@
 {
   "name": "@vycana/iteract",
-  "version": "0.0.0-development",
+  "version": "1.2.0",
   "description": "Iteract is a data manipulation library that allows for filtering data in a more readable and straightforward way. It provides an easy-to-use API for manipulating arrays of objects.",
   "main": "./src/index.js",
   "type": "module",
@@ -49,5 +49,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
